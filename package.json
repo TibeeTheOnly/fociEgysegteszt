@@ -11,6 +11,7 @@
     "start": "http-server ./webapp"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "vite": "^6.1.1",
     "vitest": "^3.0.6"
   },

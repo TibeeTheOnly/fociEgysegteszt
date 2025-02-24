@@ -4,11 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Totó Ellenőrző</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <script type="module" src="./index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" defer src="./index.js"></script>
+    <style>
+        #matches {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px; /* Increase gap for more spacing */
+        }
+        .match-item {
+            grid-column: span 1;
+            background-color: #f8f9fa;
+            padding: 15px; /* Increase padding for more spacing */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .match-item label {
+            display: block;
+            margin-bottom: 10px; /* Increase margin for more spacing */
+            font-weight: bold;
+        }
+        .match-item select {
+            width: 100%;
+            padding: 10px; /* Increase padding for better alignment */
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        .match-item:nth-child(4n+1) {
+            grid-column: span 4;
+        }
+        .match-item:nth-child(4n+2) {
+            grid-column: span 3;
+        }
+        .match-item:nth-child(4n+3) {
+            grid-column: span 2;
+        }
+        .match-item:nth-child(4n+4) {
+            grid-column: span 1;
+        }
+        #toto-form {
+            background-color: #ffffff;
+            padding: 30px; /* Increase padding for more spacing */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #toto-form button {
+            margin-top: 30px; /* Increase margin for more spacing */
+        }
+        #result {
+            margin-top: 30px; /* Increase margin for more spacing */
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Totó Ellenőrző</h1>
+    <header>
+        <h1 class="text-center">Totó Ellenőrző</h1>
+    </header>
     <form id="toto-form">
         <div id="matches">
             <!-- Matches will be generated here -->
@@ -16,5 +73,22 @@
         <button type="submit">Ellenőriz</button>
     </form>
     <p id="result"></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ensure the form content is fully loaded
+            const form = document.getElementById('toto-form');
+            if (form) {
+                form.className = 'bg-white p-4 rounded shadow-sm w-100';
+                form.style.maxWidth = '400px';
+                form.style.marginTop = '20px'; // Adjust margin to ensure visibility
+            }
+            document.body.className = 'd-flex flex-column align-items-center';
+            document.querySelector('header').className = 'mt-4 text-center';
+            document.querySelector('button').className = 'btn btn-primary btn-block';
+            document.getElementById('result').className = 'mt-4 text-center';
+        });
+    </script>
 </body>
 </html>
+
+<!--Ha mégegyszer hozzá kell nyúlnom ehhez a szar kódhoz átütöm a kurva monitorom-->

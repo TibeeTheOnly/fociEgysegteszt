@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toto.ujEredmeny(csapat1, gol1, csapat2, gol2);
 
         const matchDiv = document.createElement('div');
+        matchDiv.className = 'match-item';
         matchDiv.innerHTML = `
             <label>${csapat1} vs ${csapat2}</label>
             <select name="match${i}">
