@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import Toto from '../Toto';
+import Toto from '../webapp/Toto';
 
 describe('Toto class', () => {
     it("should create a new instance", () => {
@@ -63,5 +63,27 @@ describe('Toto class', () => {
 
         const invalidTicket = ["1", "X", "2", "1", "X", "2", "1", "X", "2", "1", "X", "2", "1"];
         expect(() => toto.szelvenytEllenoriz(invalidTicket)).toThrow("Érvénytelen szelvény.");
+    });
+
+    it("should throw an error if an invalid ticket is provided", () => {
+        const toto = new Toto();
+        for (let i = 0; i < 14; i++) {
+            toto.ujEredmeny(`csapat${i}`, i % 3, `csapat${i + 1}`, (i + 1) % 3);
+        }
+
+        const invalidTicket = ["1", "X", "2", "1", "X", "2", "1", "X", "2", "1", "X", "2", "3", "X"];
+        expect(() => toto.szelvenytEllenoriz(invalidTicket)).toThrow("Érvénytelen szelvény.");
+    });
+
+    it("should throw an error if the match result is not recorded yet", () => {
+        const toto = new Toto();
+        toto.ujEredmeny("csapat1", 2, "csapat2", 1);
+        expect(() => toto.merkozesEredmeny(1)).toThrow("Érvénytelen mérkőzés azonosító.");
+    });
+
+    it("should throw an error if the match result is not recorded yet", () => {
+        const toto = new Toto();
+        toto.ujEredmeny("csapat1", 2, "csapat2", 1);
+        expect(() => toto.merkozesCsapatok(1)).toThrow("Érvénytelen mérkőzés azonosító.");
     });
 });

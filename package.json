@@ -5,11 +5,16 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "index.js",
+  "main": "Toto.js",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "start": "http-server ./webapp"
   },
   "dependencies": {
+    "vite": "^6.1.1",
     "vitest": "^3.0.6"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
   }
 }
