@@ -55,3 +55,5 @@ class Toto {
         return helyesTippek;
     }
 }
+
+export default Toto;
